@@ -12,6 +12,8 @@
     <properties>
         <java.version>1.8</java.version>
     </properties>
+
+
     <dependencies>
         <!-- 监控程序性能起步依赖 -->
         <dependency>

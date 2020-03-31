@@ -11,7 +11,7 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: UTC
   datasource:
-    url: jdbc:mysql://localhost:3309/db2?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/db2?useUnicode=true&characterEncoding=utf8
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: root

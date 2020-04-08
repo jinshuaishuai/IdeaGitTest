@@ -18,6 +18,7 @@
 
     <modules>
         <module>springboot-jpa</module>
+        <module>ActiveMQDemo</module>
     </modules>
 
 

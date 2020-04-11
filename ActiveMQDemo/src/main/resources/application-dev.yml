@@ -1,0 +1,10 @@
+server:
+  port: 8006
+spring:
+  application:
+    name: activemq-producer
+
+debug: true
+logging:
+  path: /Users/zsxj/logs/
+  file: activemq-producer

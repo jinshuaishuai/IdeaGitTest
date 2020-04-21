@@ -1,0 +1,10 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: springboot-zookeeper
+
+debug: true
+logging:
+  path: /Users/zsxj/logs/
+  file: springboot-zookeeper

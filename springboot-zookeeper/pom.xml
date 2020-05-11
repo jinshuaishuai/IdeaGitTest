@@ -22,6 +22,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
         <!-- 测试起步依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

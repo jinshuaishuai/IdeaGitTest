@@ -19,6 +19,7 @@
     <modules>
         <module>springboot-jpa</module>
         <module>ActiveMQDemo</module>
+        <module>springboot-zookeeper</module>
     </modules>
 
 

@@ -1,0 +1,23 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: pgsql
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+#      connection-init-sqls:  set names utf8
+      driver-class-name: org.postgresql.Driver
+      url: jdbc:postgresql://localhost:5432/def?characterEncodeing=utf8
+      username: postgres
+      password: root
+      max-active: 50
+      initial-size: 10
+      max-wait: 60000
+      min-idle: 6
+      pool-prepared-statements: true
+      max-open-prepared-statements: 20
+
+mybatis:
+  mapper-locations:  classpath:mapper/*.xml
+

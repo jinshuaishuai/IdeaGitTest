@@ -20,6 +20,9 @@
         <module>springboot-jpa</module>
         <module>ActiveMQDemo</module>
         <module>springboot-zookeeper</module>
+        <module>mybatis-reverse</module>
+        <module>springboot-pgsql</module>
+        <module>springboot-dynamicDatasource</module>
     </modules>
 
 

@@ -1,5 +1,11 @@
 package com.jin;
 
+import com.google.gson.Gson;
+import com.jin.entity.AO.UserAO;
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -64,5 +70,24 @@ public class StringTest {
 
             System.out.println(group);
         }*/
+    }
+
+    @Test
+    public void testJson() {
+        UserAO user = new UserAO();
+        user.setAge(23);
+        user.setName("张三");
+
+        UserAO user2 = new UserAO();
+        user2.setName("李四");
+        user2.setAge(24);
+
+        List<UserAO> list = new ArrayList<>();
+        list.add(user);
+        list.add(user2);
+
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+        System.out.println(json);
     }
 }

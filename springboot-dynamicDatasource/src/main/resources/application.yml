@@ -1,0 +1,34 @@
+server:
+  port: 8003
+
+spring:
+  application:
+    name: dynamicDatasource     #这个配置很重要
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      master:
+        connection-init-sqls:  set names utf8mb4
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/demo1?characterEncodeing=utf8mb4
+        username: root
+        password: root
+
+      cluster:
+      - key: second
+        connection-init-sqls:  set names utf8mb4
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/demo2?characterEncodeing=utf8mb4
+        username: root
+        password: root
+
+      - key: third
+        connection-init-sqls:  set names utf8mb4
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/demo3?characterEncodeing=utf8mb4
+        username: root
+        password: root
+
+
+mybatis:
+  mapper-locations:  classpath:mapper/*.xml

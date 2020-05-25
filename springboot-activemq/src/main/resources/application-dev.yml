@@ -2,9 +2,9 @@ server:
   port: 8006
 spring:
   application:
-    name: activemq-producer
+    name: springboot-activemq
 
 debug: true
 logging:
-  path: /Users/zsxj/logs/
+  path: D:/Users/zsxj/logs/
   file: activemq-producer

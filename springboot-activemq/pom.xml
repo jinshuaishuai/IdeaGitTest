@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ActiveMQDemo</artifactId>
+    <artifactId>springboot-activemq</artifactId>
     <properties>
         <skipTests>true</skipTests><!-- 跳过测试 -->
     </properties>
@@ -58,9 +58,14 @@
             <optional>true</optional>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-activemq</artifactId>
+        </dependency>
+        <!--消息队列连接池-->
+        <dependency>
             <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-all</artifactId>
-            <version>5.15.9</version>
+            <artifactId>activemq-pool</artifactId>
+            <version>5.15.0</version>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>

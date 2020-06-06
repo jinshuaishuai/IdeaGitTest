@@ -17,6 +17,6 @@ public class ActiveMQQueueListener implements MessageListener {
     @Override
     public void onMessage(Message message) {
         TextMessage textMessage = (TextMessage) message;
-        System.out.println(((TextMessage) message).getText());
+        System.out.println("消息消费成功：" + ((TextMessage) message).getText());
     }
 }

@@ -1,14 +1,12 @@
 package com.jin.controller;
 
+import com.jin.config.mq.MessageService;
 import com.jin.entity.AO.UserAO;
-import com.jin.mq.MessageProducer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.jms.JMSException;
 
 /**
  * @Author shuai.jin
@@ -20,17 +18,12 @@ import javax.jms.JMSException;
 public class HelloController {
 
     @Autowired
-    private MessageProducer messageProducer;
+    private MessageService messageService;
 
     @PostMapping("/hello")
     public String sayHello(@RequestBody UserAO userAO) {
         log.info("sayHello请求入参为：--->{}", userAO);
-        try {
-            messageProducer.sendMsg(userAO.toString());
-        } catch (JMSException e) {
-            log.error("发送消息失败：--->{}", e.toString());
-            return "Fail";
-        }
+        messageService.sendMessage(userAO.toString());
         return "Success";
     }
 }

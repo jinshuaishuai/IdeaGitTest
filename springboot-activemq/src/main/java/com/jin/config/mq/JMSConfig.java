@@ -18,10 +18,6 @@ import javax.jms.ConnectionFactory;
  */
 @Configuration
 public class JMSConfig {
-/*
-    @Value("${spring.activemq.broker-url}")
-    private static String brokerUrl;*/
-
 
     /**
      * JMS连接工厂
@@ -38,10 +34,9 @@ public class JMSConfig {
     /**
      * activemq连接工厂类
      * @return
-     * @throws Exception
      */
     @Bean(value = "activemqConnectionFactory")
-    public ActiveMQConnectionFactory activeConnnectionFactory() throws Exception {
+    public ActiveMQConnectionFactory activeConnnectionFactory() {
         ActiveMQConnectionFactory activeMQConnectionFactory = new ActiveMQConnectionFactory();
         return activeMQConnectionFactory;
     }

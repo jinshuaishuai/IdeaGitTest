@@ -1,6 +1,5 @@
-package com.jin.config.mq.queue;
+package com.jin.config.mq.listener;
 
-import com.jin.config.mq.listener.ActiveMQQueueListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

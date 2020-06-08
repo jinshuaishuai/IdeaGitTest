@@ -23,7 +23,8 @@ public class HelloController {
     @PostMapping("/hello")
     public String sayHello(@RequestBody UserAO userAO) {
         log.info("sayHello请求入参为：--->{}", userAO);
-        messageService.sendMessage(userAO.toString());
+        messageService.sendQueueMessage(userAO.toString());
+        messageService.sendTopicMessage("发送的是主题消息");
         return "Success";
     }
 }

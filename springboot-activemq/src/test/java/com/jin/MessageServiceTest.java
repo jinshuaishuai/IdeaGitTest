@@ -22,6 +22,6 @@ public class MessageServiceTest {
     public void testMessageSend() {
 
         System.out.println(messageService);
-        messageService.sendMessage("不见了远处的青山");
+        messageService.sendQueueMessage("不见了远处的青山");
     }
 }

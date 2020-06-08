@@ -6,6 +6,7 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.jms.Queue;
+import javax.jms.Topic;
 
 /**
  * @author shuai.jin
@@ -21,8 +22,16 @@ public class MessageService {
     @Qualifier(value = "queue1")
     private Queue queue;
 
-    public void sendMessage(String messageContent) {
+    @Autowired
+    @Qualifier(value = "topic1")
+    private Topic topic;
+
+    public void sendQueueMessage(String messageContent) {
         jmsTemplate.send(queue, session -> session.createTextMessage(messageContent));
+    }
+
+    public void sendTopicMessage(String messageContent) {
+        jmsTemplate.send(topic,session -> session.createTextMessage(messageContent));
     }
 
 }

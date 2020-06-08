@@ -33,7 +33,7 @@ public class ActiveMQQueueConfig {
      */
     @Bean(value = "queue1")
     public Queue queue1() {
-        ActiveMQQueue queue = new ActiveMQQueue(QueueEnum.firstQueue.getQueueName());
+        ActiveMQQueue queue = new ActiveMQQueue(QueueEnum.FIRST_QUEUE.getQueueName());
         return queue;
     }
 
@@ -43,12 +43,16 @@ public class ActiveMQQueueConfig {
      */
     @Bean(value = "queue2")
     public Queue queue2() {
-        ActiveMQQueue queue = new ActiveMQQueue("springboot-activemq-queue-test2");
+        ActiveMQQueue queue = new ActiveMQQueue(QueueEnum.SECOND_QUEUE.getQueueName());
         return queue;
     }
 
-    @Bean
-    public MessageListenerContainer messageListenerContaine() {
+    /**
+     * 在容器中实例队列容器
+     * @return
+     */
+    @Bean(value = "queueContainer")
+    public MessageListenerContainer messageListenerContainer() {
         DefaultMessageListenerContainer messageListenerContainer = new DefaultMessageListenerContainer();
         messageListenerContainer.setConnectionFactory(connectionFactory);
         messageListenerContainer.setDestination(queue1());

@@ -14,6 +14,8 @@ public class PointDO implements Serializable {
 
     private static final long serialVersionUID = 8564904381575883395L;
 
+    private Integer id;
+
     private Integer userId;
 
     private BigDecimal point;

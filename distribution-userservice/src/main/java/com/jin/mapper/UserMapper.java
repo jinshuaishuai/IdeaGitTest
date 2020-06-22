@@ -24,4 +24,11 @@ public interface UserMapper {
      * @param userId
      */
     void deleteUserById(@Param("id") int userId);
+
+    /**
+     * 根据用户id获取用户详情
+     * @param userId
+     * @return
+     */
+    UserDO getUserById(int userId);
 }

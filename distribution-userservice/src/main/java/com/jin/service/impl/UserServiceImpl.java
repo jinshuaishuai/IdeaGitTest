@@ -78,4 +78,10 @@ public class UserServiceImpl implements UserService {
 
         eventMapper.addEvent(eventDo);
     }
+
+    @Override
+    public UserDO getUserById(int userId) {
+        return userMapper.getUserById(userId);
+    }
+
 }

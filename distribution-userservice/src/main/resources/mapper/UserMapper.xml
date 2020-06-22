@@ -36,6 +36,18 @@
             </if>
         </trim>
     </insert>
+    <select id="getUserById" parameterType="int" resultMap="BaseUserResult">
+        SELECT
+        id,
+        NAME,
+        age,
+        phone
+        FROM
+        user_info
+        <where>
+            id = #{id, jdbcType=INTEGER}
+        </where>
+    </select>
     <delete id="deleteUserById" parameterType="int">
         delete from user_info where id = #{id, jdbcType=INTEGER}
     </delete>

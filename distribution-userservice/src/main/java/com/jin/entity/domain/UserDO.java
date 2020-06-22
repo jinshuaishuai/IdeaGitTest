@@ -11,6 +11,8 @@ import java.io.Serializable;
 @Data
 public class UserDO implements Serializable {
 
+    private static final long serialVersionUID = -4553356176214119782L;
+
     private Integer id;
 
     private String name;

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jin.mapper.UserMapper">
+    <resultMap type="com.jin.entity.domain.UserDO" id="BaseUserResult">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="age" jdbcType="INTEGER" property="age"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+    </resultMap>
+    <insert id="addUser" parameterType="com.jin.entity.domain.UserDO">
+        <selectKey keyProperty="id" resultType="java.lang.Integer" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into user_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">
+                name,
+            </if>
+            <if test="age != null">
+                age,
+            </if>
+            <if test="phone != null and phone != ''">
+                phone
+            </if>
+        </trim>
+        <trim prefix="values(" suffix=")" suffixOverrides=",">
+
+            <if test="name != null and name != ''">
+                #{name, jdbcType=VARCHAR},
+            </if>
+            <if test="age != null">
+                #{age, jdbcType=INTEGER},
+            </if>
+            <if test="phone != null and phone != ''">
+                #{phone, jdbcType=VARCHAR}
+            </if>
+        </trim>
+    </insert>
+    <delete id="deleteUserById" parameterType="int">
+        delete from user_info where id = #{id, jdbcType=INTEGER}
+    </delete>
+</mapper>

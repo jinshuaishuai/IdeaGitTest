@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jin.mapper.EventMapper">
+    <resultMap type="com.jin.entity.domain.EventDO" id="BaseEventResult">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="process" jdbcType="VARCHAR" property="process"/>
+        <result column="content" jdbcType="VARCHAR" property="content"/>
+    </resultMap>
+    <insert id="addEvent" parameterType="com.jin.entity.domain.EventDO">
+        INSERT INTO t_event ( type, process, content )
+        VALUES
+            (
+             #{type, jdbcType=VARCHAR},
+             #{process, jdbcType=VARCHAR},
+             #{content, jdbcType=VARCHAR}
+            )
+    </insert>
+    <select id="getEventListByParams" parameterType="com.jin.entity.query.EventQuery" resultMap="BaseEventResult">
+        select
+            id,type,process,content
+        from t_event
+        <where>
+            <if test="id != null">
+                and id = #{id, jdbcType=INTEGER}
+            </if>
+            <if test="process != null and process != ''">
+                and process = #{process, jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+    <update id="updateEvent" parameterType="com.jin.entity.domain.EventDO">
+        update t_event
+        <set>
+            <if test="process != null and process != ''">
+                process = #{process, jdbcType=VARCHAR},
+            </if>
+            <if test="type != null and type != ''">
+                type = #{type, jdbcType=VARCHAR},
+            </if>
+            <if test="content != null and content != ''">
+                content = #{content, jdbcType=VARCHAR}
+            </if>
+        </set>
+        <where>
+            id = #{id, jdbcType=INTEGER}
+        </where>
+    </update>
+</mapper>

@@ -1,6 +1,7 @@
 package com.jin.controller;
 
 import com.jin.common.config.RestResponse;
+import com.jin.config.annotation.LogRecord;
 import com.jin.entity.ao.UserAO;
 import com.jin.entity.domain.EventDO;
 import com.jin.entity.domain.PointDO;
@@ -31,6 +32,7 @@ public class UserController {
     @Autowired
     private UserPointService userPointService;
 
+    @LogRecord(operatorModule = "用户管理模块", operatorType = "新增用户")
     @PostMapping(value = "/addUser")
     public String addUser(@RequestBody @Validated UserAO userAo) {
         userService.addUser(userAo);

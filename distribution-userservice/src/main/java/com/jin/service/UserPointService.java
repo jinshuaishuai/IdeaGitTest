@@ -1,8 +1,12 @@
 package com.jin.service;
 
+import com.jin.entity.domain.EventDO;
 import com.jin.entity.domain.PointDO;
+import com.jin.entity.query.EventQuery;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -11,6 +15,7 @@ import java.util.List;
  * @author shuai.jin
  * @date 2020/6/22 13:43
  */
+//开启远程调用
 @FeignClient(name = "pointservice")
 public interface UserPointService {
     /**
@@ -21,4 +26,7 @@ public interface UserPointService {
      */
     @GetMapping(value = "/api/userpoint/getUserPointList")
     List<PointDO> getUserPoint(@RequestParam(value = "userId") int userId);
+
+    @PostMapping(value = "/api/userpoint/getPointEventList")
+    List<EventDO> getPointEventList(@RequestBody EventQuery eventQuery);
 }

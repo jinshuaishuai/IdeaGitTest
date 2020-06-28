@@ -2,9 +2,11 @@ package com.jin.controller;
 
 import com.jin.common.config.RestResponse;
 import com.jin.entity.ao.UserAO;
+import com.jin.entity.domain.EventDO;
 import com.jin.entity.domain.PointDO;
 import com.jin.entity.domain.UserDO;
 import com.jin.entity.dto.UserPointDTO;
+import com.jin.entity.query.EventQuery;
 import com.jin.service.UserPointService;
 import com.jin.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -44,5 +46,12 @@ public class UserController {
         userPointDto.setUserDo(userDo);
         userPointDto.setPointDoList(userPointList);
         return RestResponse.success(userPointDto);
+    }
+
+    @PostMapping(value = "/getPointEventList")
+    public RestResponse<List<EventDO>> getPointEventList(@RequestBody EventQuery eventQuery) {
+        log.info("请求入参为：------>{}", eventQuery);
+        List<EventDO> pointEventList = userPointService.getPointEventList(eventQuery);
+        return RestResponse.success(pointEventList);
     }
 }

@@ -3,7 +3,7 @@ package com.jin.service.impl;
 import com.jin.config.DistributeLock;
 import com.jin.config.ZookeeperDistributeLock;
 import com.jin.service.OrderService;
-import com.jin.util.OrderNumberGenerator;
+import com.jin.util.OrderNumberGeneratorUtil;
 
 /**
  * @author shuai.jin
@@ -12,12 +12,11 @@ import com.jin.util.OrderNumberGenerator;
  */
 public class OrderServiceImpl implements OrderService {
     private DistributeLock distributeLock = new ZookeeperDistributeLock();
-    private OrderNumberGenerator orderNumberGenerator = new OrderNumberGenerator();
     @Override
     public String getOrderNumber() throws Exception {
         try {
             distributeLock.getLock();   //加锁
-            String orderNumber = orderNumberGenerator.getOrderNumber();
+            String orderNumber = OrderNumberGeneratorUtil.getOrderNumber();
             System.out.println(Thread.currentThread().getName() + ":" + orderNumber);
             return orderNumber;
         } finally {

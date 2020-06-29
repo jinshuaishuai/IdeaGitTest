@@ -1,5 +1,6 @@
 package com.jin.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.I0Itec.zkclient.IZkDataListener;
 import org.I0Itec.zkclient.ZkClient;
 
@@ -10,6 +11,7 @@ import java.util.concurrent.CountDownLatch;
  * @description TODO
  * @Date 2020/4/20 16:50
  */
+@Slf4j
 public class ZookeeperDistributeLock extends AbstractDistributeLock {
     /**
      * zookeeper客户端所在地址
@@ -20,6 +22,7 @@ public class ZookeeperDistributeLock extends AbstractDistributeLock {
     private final String lockPath = "/lockPath";
 
     private ZkClient zkClient = new ZkClient(CONNECT_URL);
+
     private CountDownLatch countDownLatch = null;
 
 
@@ -46,7 +49,7 @@ public class ZookeeperDistributeLock extends AbstractDistributeLock {
             try {
                 countDownLatch.wait();
             } catch (Exception e) {
-                System.out.println("处理出现异常");
+                log.error("处理出现失败：------>{}", e.toString());
 
             }
         }
@@ -60,7 +63,7 @@ public class ZookeeperDistributeLock extends AbstractDistributeLock {
             zkClient.createEphemeral(lockPath);
             return true;
         } catch (Exception e) {
-            System.out.println("获取锁失败");
+            log.error("获取锁失败：------>{}", e.toString());
             return false;
         }
     }

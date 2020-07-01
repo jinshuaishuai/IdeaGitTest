@@ -1,9 +1,8 @@
 package com.jin.entity.ao;
 
+import com.jin.paramvalid.config.annotation.Age;
 import lombok.Data;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -20,8 +19,6 @@ public class UserAO {
     @NotBlank(message = "手机号不能为空")
     private String phone;
 
-    @NotNull(message = "年龄不能为空")
-    @Min(value = 0)
-    @Max(value = 160)
+    @Age(message = "年龄取值范围0-160")
     private Integer age;
 }

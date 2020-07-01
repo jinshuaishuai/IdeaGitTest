@@ -5,6 +5,8 @@ import com.jin.entity.ao.UserAO;
 import com.jin.entity.bo.PointBO;
 import com.jin.entity.domain.EventDO;
 import com.jin.entity.domain.UserDO;
+import com.jin.exception.BusinessException;
+import com.jin.exception.UserAddException;
 import com.jin.mapper.EventMapper;
 import com.jin.mapper.UserMapper;
 import com.jin.service.UserService;
@@ -15,6 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * @author shuai.jin
@@ -32,7 +35,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void addUser(UserAO userAo) {
+    public void addUser(UserAO userAo) throws NoSuchAlgorithmException {
         /*
          * 分布式事务实现方案之本地事件表加消息队列的方式
          * 步骤一：向用户表中新增一条用户记录，同时向事件表中新增一条process为NEW的记录，content的内容为积分json格式的字符串
@@ -65,6 +68,11 @@ public class UserServiceImpl implements UserService {
         UserDO userDo = new UserDO();
         BeanUtils.copyProperties(userAo, userDo);
         userMapper.addUser(userDo);
+
+        if(1 > 0) {
+//            throw new NoSuchAlgorithmException("没有该算法");
+            throw new UserAddException("用户新增失败");
+        }
 
         PointBO pointBo = new PointBO();
         pointBo.setUserId(userDo.getId());

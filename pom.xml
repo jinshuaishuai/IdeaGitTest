@@ -26,6 +26,7 @@
         <module>distribution-userservice</module>
         <module>distribution-pointservice</module>
         <module>springcloud-eureka</module>
+        <module>springboot-paramvalid</module>
     </modules>
 
 

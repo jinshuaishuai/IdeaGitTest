@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 /**
@@ -34,9 +35,9 @@ public class UserController {
 
     @LogRecord(operatorModule = "用户管理模块", operatorType = "新增用户")
     @PostMapping(value = "/addUser")
-    public String addUser(@RequestBody @Validated UserAO userAo) {
+    public RestResponse<String> addUser(@RequestBody @Validated UserAO userAo) throws NoSuchAlgorithmException {
         userService.addUser(userAo);
-        return "Success";
+        return RestResponse.success();
     }
 
     @GetMapping(value = "/getUserPoint")

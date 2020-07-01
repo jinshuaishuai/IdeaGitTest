@@ -1,4 +1,4 @@
-package com.jin.config;
+package com.jin.config.lock.distributelock;
 
 import lombok.extern.slf4j.Slf4j;
 import org.I0Itec.zkclient.IZkDataListener;

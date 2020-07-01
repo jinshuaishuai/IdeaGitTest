@@ -14,9 +14,6 @@ public class OrderController {
 
 
     public static void main(String[] args) throws Exception {
-        //创建100个线程。
-        for(int i = 0;i < 3000; i++) {
-            new Thread(new OrderServiceImpl()).start();
-        }
+
     }
 }

@@ -1,4 +1,4 @@
-package com.jin.config;
+package com.jin.config.lock.distributelock;
 
 /**
  * @author shuai.jin

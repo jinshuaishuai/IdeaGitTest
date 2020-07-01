@@ -22,7 +22,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
+        <!--jedis依赖包-->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>3.1.0</version>
+        </dependency>
         <!-- 测试起步依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

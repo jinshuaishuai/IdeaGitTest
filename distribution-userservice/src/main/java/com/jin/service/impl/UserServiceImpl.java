@@ -69,11 +69,6 @@ public class UserServiceImpl implements UserService {
         BeanUtils.copyProperties(userAo, userDo);
         userMapper.addUser(userDo);
 
-        if(1 > 0) {
-//            throw new NoSuchAlgorithmException("没有该算法");
-            throw new UserAddException("用户新增失败");
-        }
-
         PointBO pointBo = new PointBO();
         pointBo.setUserId(userDo.getId());
         BigDecimal point = new BigDecimal(20);

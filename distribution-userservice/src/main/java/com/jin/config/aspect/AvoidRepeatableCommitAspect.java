@@ -45,7 +45,7 @@ public class AvoidRepeatableCommitAspect {
 
     }
 
-    @Around(value = "pointcut()")
+    @Before(value = "pointcut()")
     public void before(JoinPoint joinPoint) {
         RequestAttributes requestAttributes = RequestContextHolder.currentRequestAttributes();
         ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) requestAttributes;

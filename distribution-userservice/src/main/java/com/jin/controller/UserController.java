@@ -1,6 +1,7 @@
 package com.jin.controller;
 
 import com.jin.common.config.RestResponse;
+import com.jin.config.annotation.AvoidRepeatableCommit;
 import com.jin.config.annotation.LogRecord;
 import com.jin.entity.ao.UserAO;
 import com.jin.entity.domain.EventDO;
@@ -34,6 +35,8 @@ public class UserController {
     private UserPointService userPointService;
 
     @LogRecord(operatorModule = "用户管理模块", operatorType = "新增用户")
+    //防止表单在规定时间内重复提交
+    @AvoidRepeatableCommit
     @PostMapping(value = "/addUser")
     public RestResponse<String> addUser(@RequestBody @Validated UserAO userAo) throws NoSuchAlgorithmException {
         userService.addUser(userAo);

@@ -12,9 +12,11 @@ import org.springframework.jms.support.converter.SimpleMessageConverter;
 import javax.jms.ConnectionFactory;
 
 /**
- * @author shuai.jin
- * @description TODO
- * @Date 2020/5/25 10:39
+ * <p>
+ *     消息队列配置类
+ * </p>
+ * @author  shuai.jin
+ * @date    2020/5/25 10:39
  */
 @Configuration
 public class JMSConfig {

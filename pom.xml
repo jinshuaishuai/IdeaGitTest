@@ -28,6 +28,7 @@
         <module>springcloud-eureka</module>
         <module>springboot-paramvalid</module>
         <module>springboot-utils</module>
+        <module>springboot-kafka</module>
     </modules>
 
     <dependencies>

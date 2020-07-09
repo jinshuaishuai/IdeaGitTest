@@ -18,6 +18,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Base64;
 
+
 /**
  * @author shuai.jin
  * @date 2020/6/2 14:04

@@ -47,4 +47,19 @@ public class TwoFactorAuthTest {
         System.out.println(url);
     }
 
+    @Test
+    public void salaryCul() {
+        int servenAmount = 8680 + 17576 + 600 + 10800 + 2000 - 56;
+        System.out.println("七月十号个人资产总额：" + servenAmount);
+        int eightAmount = servenAmount + 13600 - 4000;
+        System.out.println("八月十号个人资产总额" + eightAmount);
+        int nineAmount = eightAmount + 9600;
+        System.out.println("九月十号个人资产总额" + nineAmount);
+        int tenAmount = nineAmount + 9600;
+        System.out.println("十月份十号个人资产总额：" + tenAmount);
+
+        System.out.println("过年到家：" + (68400 + 38400));
+
+    }
+
 }

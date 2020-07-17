@@ -13,6 +13,7 @@ spring:
       url: jdbc:mysql://localhost:3306/demo1?characterEncodeing=utf8mb4
       username: root
       password: root
+      max-open-prepared-statements:
   mvc:
     servlet:
       path: /api

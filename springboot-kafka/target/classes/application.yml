@@ -1,5 +1,22 @@
+server:
+  port: 8003
+
 spring:
   application:
     name: springboot-kafka
-server:
-  port: 8003
+  kafka:
+    bootstrap-servers: localhost:9092
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: 1
+
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      group-id: default_consumer_group
+      enable-auto-commit: true
+      auto-commit-interval: 1000
+
+

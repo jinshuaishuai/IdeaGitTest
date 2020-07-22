@@ -1,6 +1,0 @@
-package com.jin;
-rule "helloworld"
-when
-    eval(true)
-then System.out.println("hello,jinshuai");
- end

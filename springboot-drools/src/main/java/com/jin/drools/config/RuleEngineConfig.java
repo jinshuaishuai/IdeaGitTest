@@ -21,13 +21,18 @@ import java.io.IOException;
 @Configuration
 @Slf4j
 public class RuleEngineConfig {
+
     private static final String RULES_PATH = "rules/";
+
     private final KieServices kieServices = KieServices.Factory.get();
+
     @Bean
     public KieFileSystem kieFileSystem() throws IOException {
         KieFileSystem kieFileSystem = kieServices.newKieFileSystem();
         ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
-        Resource[] files = resourcePatternResolver.getResources("classpath*:" + RULES_PATH + "*.*");
+        Resource[] files = resourcePatternResolver.getResources("classpath*:" + RULES_PATH  + "*.*");
+
+
         String path = null;
         for (Resource file : files) {
             path = RULES_PATH + file.getFilename();

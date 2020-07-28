@@ -1,5 +1,6 @@
 package com.jin.test;
 
+import com.jin.entity.ao.UserAO;
 import lombok.SneakyThrows;
 import net.sf.json.JSONArray;
 import org.junit.Test;
@@ -127,6 +128,30 @@ public class ThreadTest {
                 }
             });
         });
+    }
+
+    @Test
+    public void testUser() {
+        UserAO userAO = new UserAO();
+        userAO.setAge(23);
+        userAO.setName("张三");
+        userAO.setPhone("15560220637");
+
+        List<UserAO> list1 = new ArrayList<>();
+        list1.add(userAO);
+        boolean contains = list1.contains(userAO);
+
+        UserAO user2 = new UserAO();
+
+        boolean contains1 = list1.contains(user2);
+        System.out.println(contains1);
+
+        System.out.println(contains);
+    }
+
+    @Test
+    public void testStringFormat() {
+        System.out.println(String.format("%d %s", "test".length(), "test"));
     }
 }
 

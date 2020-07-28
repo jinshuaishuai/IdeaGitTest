@@ -30,6 +30,7 @@
         <module>springboot-utils</module>
         <module>springboot-kafka</module>
         <module>springboot-drools</module>
+        <module>springboot-quartz</module>
     </modules>
 
     <dependencies>

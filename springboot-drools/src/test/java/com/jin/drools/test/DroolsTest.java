@@ -82,4 +82,10 @@ public class DroolsTest {
         kieSession.fireAllRules(/*agendaFilter*/);
     }
 
+    @Test
+    public void testInteger() {
+        Integer i1 = 1;
+        System.out.println(i1.equals("1"));
+    }
+
 }

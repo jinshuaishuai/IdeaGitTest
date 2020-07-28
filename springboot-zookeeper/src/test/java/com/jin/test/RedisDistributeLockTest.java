@@ -31,4 +31,10 @@ public class RedisDistributeLockTest {
 //            Thread.sleep(1000);
         }
     }
+
+    @Test
+    public void testInteger() {
+        Integer i1 = 1;
+        System.out.println(i1.equals(1));
+    }
 }

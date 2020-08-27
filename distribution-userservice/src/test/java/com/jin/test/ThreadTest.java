@@ -1,10 +1,15 @@
 package com.jin.test;
 
+import com.google.gson.Gson;
 import com.jin.entity.ao.UserAO;
+import com.jin.entity.domain.PointDO;
+import com.jin.entity.domain.UserDO;
+import com.jin.entity.dto.UserPointDTO;
 import lombok.SneakyThrows;
 import net.sf.json.JSONArray;
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -153,5 +158,35 @@ public class ThreadTest {
     public void testStringFormat() {
         System.out.println(String.format("%d %s", "test".length(), "test"));
     }
+
+    @Test
+    public void testGson() {
+        Gson gson = new Gson();
+
+        UserPointDTO userPointDTO = new UserPointDTO();
+        UserDO userDO = new UserDO();
+        userDO.setAge(23);
+        userDO.setId(1);
+        userDO.setName("张三");
+        userDO.setPhone("15560220637");
+
+        List<PointDO> list = new ArrayList<>();
+
+        PointDO pointDO = new PointDO();
+        pointDO.setPoint(new BigDecimal(99));
+        pointDO.setUserId(12);
+        list.add(pointDO);
+
+        userPointDTO.setPointDoList(list);
+
+        userPointDTO.setUserDo(userDO);
+
+        System.out.println();
+        String s = gson.toJson(userPointDTO);
+        UserPointDTO userPointDTO1 = gson.fromJson(s, UserPointDTO.class);
+        System.out.println(userPointDTO1);
+    }
+
+
 }
 

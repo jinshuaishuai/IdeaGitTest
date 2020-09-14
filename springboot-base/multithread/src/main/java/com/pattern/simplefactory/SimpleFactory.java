@@ -20,7 +20,8 @@ public class SimpleFactory {
     public static void main(String[] args) {
         /*
             对简单工厂的总结：
-            1、主要思想：
+            1、主要思想：其实这个思想很简单，简单工厂是为了生产类对象用的?显然不对吧，根据case情况不同
+            创建具体的类的实例
             2、适应场景：
             3、优缺点：
          */

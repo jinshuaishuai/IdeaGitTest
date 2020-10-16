@@ -6,6 +6,9 @@ import com.jin.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.*;
+import java.util.stream.Collectors;
+
 /**
  * @author shuai.jin
  * @description TODO
@@ -20,6 +23,16 @@ public class UserInfoServiceImpl implements UserInfoService {
 
     @Override
     public UserInfoDO getUserInfoById(int id) {
-        return userInfoMapper.getUserInfoById(id);
+        UserInfoDO infoDo = userInfoMapper.getUserInfoById(id);
+
+        return infoDo;
+    }
+
+    @Override
+    public List<Map<String, Object>> getDynamicQueryResult() {
+
+        List<Map<String, Object>> result = userInfoMapper.getDynamicQueryResult();
+        System.out.println(result);
+        return result;
     }
 }

@@ -2,6 +2,9 @@ package com.jin.service;
 
 import com.jin.entity.domain.UserInfoDO;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * @author shuai.jin
  * @description TODO
@@ -15,4 +18,6 @@ public interface UserInfoService {
      * @return
      */
     UserInfoDO getUserInfoById(int id);
+
+    List<Map<String, Object>> getDynamicQueryResult();
 }

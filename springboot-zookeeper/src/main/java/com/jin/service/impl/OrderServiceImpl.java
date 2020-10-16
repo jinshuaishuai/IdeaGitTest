@@ -30,12 +30,12 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public String getOrderNumber() throws Exception {
         try {
-            distributeLock.getLock();   //加锁
+//            distributeLock.getLock();   //加锁
             String orderNumber = OrderNumberGeneratorUtil.getOrderNumber();
             System.out.println(Thread.currentThread().getName() + ":" + orderNumber);
             return orderNumber;
         } finally {
-            distributeLock.unlock();
+//            distributeLock.unlock();
         }
 
     }

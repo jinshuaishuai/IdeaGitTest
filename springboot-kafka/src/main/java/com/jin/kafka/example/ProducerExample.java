@@ -15,14 +15,14 @@ public class ProducerExample {
 
     public static void main(String[] args) {
         Map<String, Object> map = new HashMap<>(16);
-        map.put("bootstrap.servers","localhost:9092");
+        map.put("bootstrap.servers","127.0.0.1:9092");
         map.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         map.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 
         map.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         map.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 
-        map.put("zk.connect","localhost:2181");
+        map.put("zk.connect","127.0.0.1:2181");
 
         String topic = "test-topic";
 

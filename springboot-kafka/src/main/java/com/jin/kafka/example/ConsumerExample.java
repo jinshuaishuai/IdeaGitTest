@@ -19,7 +19,7 @@ public class ConsumerExample {
         String topic = "test-topic";
 
         Properties prop = new Properties();
-        prop.put("bootstrap.servers","localhost:9092");
+        prop.put("bootstrap.servers","127.0.0.1:9092");
         prop.put("group.id","testGroup1");
         prop.put("enable.auto.commit", "true");
 

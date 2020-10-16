@@ -1,0 +1,12 @@
+package rules;
+import com.jin.drools.entity.dto.PersonDto;
+
+rule "person-rule"
+    when
+        $person : PersonDto(name == "zhangsan", age >= 23);
+
+    then
+        $person.setName("李四");
+        $person.setAge(24);
+        System.out.println("更改person对象的值为：" + $person);
+end

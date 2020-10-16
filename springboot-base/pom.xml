@@ -15,5 +15,18 @@
         <module>multithread</module>
     </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.jin</groupId>
+            <artifactId>springboot-utils</artifactId>
+            <scope>compile</scope>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
 
 </project>

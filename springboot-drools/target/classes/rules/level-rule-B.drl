@@ -1,0 +1,14 @@
+package rules;
+
+import com.jin.drools.entity.ao.LevelAo;
+import com.jin.drools.entity.dto.ResultDto;
+
+rule "level_B"
+    when
+        $levelAo : LevelAo(level == 2);
+        $resultDto : ResultDto();
+    then
+        $resultDto.setLevel("B");
+        System.out.println("B 规则执行");
+        System.out.println($resultDto);
+     end

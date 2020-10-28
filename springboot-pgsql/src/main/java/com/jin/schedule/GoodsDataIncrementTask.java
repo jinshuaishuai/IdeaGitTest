@@ -42,6 +42,7 @@ public class GoodsDataIncrementTask {
     public void incrementData2Goods() {
 
         for(int i = 0; i < 10000; i++) {
+
             String goodsName =
                     goodsNames[new Double(Math.random() * goodsNames.length).intValue()];
             GoodsAo goodsAo = GoodsAo.builder()

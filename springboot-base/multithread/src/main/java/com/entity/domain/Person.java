@@ -45,9 +45,7 @@ public class Person implements Serializable {
     }
 
     public static void main(String[] args) {
-        for(int j = 0; j < 100; j++) {
-            System.out.println(getRangeValue(7, 15));
-        }
+        System.out.println(50000 / (6 * 6 * 16));
 
     }
 

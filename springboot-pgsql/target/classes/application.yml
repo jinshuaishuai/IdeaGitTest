@@ -9,7 +9,7 @@ spring:
     druid:
       connection-init-sqls:  set names utf8mb4
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/demo3?characterEncodeing=utf8mb4
+      url: jdbc:mysql://192.144.137.185:3306/double_ele?characterEncodeing=utf8mb4
       username: root
       password: root
 

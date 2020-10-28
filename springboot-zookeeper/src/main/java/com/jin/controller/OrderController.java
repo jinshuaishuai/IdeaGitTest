@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.lang.model.element.NestingKind;
+import java.util.Hashtable;
 
 /**
  * @author shuai.jin
@@ -24,6 +25,14 @@ public class OrderController {
     @GetMapping(value = "/getOrderNum")
     public String getOrderNum() throws Exception {
         return orderService.getOrderNumber();
+    }
+
+    public static void main(String[] args) {
+        Hashtable<String, Integer> hashtable = new Hashtable<>();
+        hashtable.put("age", 1);
+        hashtable.put("age", 2);
+
+
     }
 
 

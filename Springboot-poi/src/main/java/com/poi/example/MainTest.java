@@ -31,14 +31,15 @@ public class MainTest {
 
         List<String> headList = new ArrayList<>();
         headList.add("a");
-        headList.add("b");
-        headList.add("c");
+//        headList.add("b");
+//        headList.add("c");
 //        headList.add("d");
+
+
+
         writer.writeHeadRow(headList);
-
-
-
         writer.write(maps);
+
         writer.close();
     }
 }

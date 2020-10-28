@@ -33,6 +33,7 @@
         <module>springboot-quartz</module>
         <module>springboot-base</module>
         <module>Springboot-poi</module>
+        <module>springboot-test</module>
     </modules>
     <dependencyManagement>
         <dependencies>

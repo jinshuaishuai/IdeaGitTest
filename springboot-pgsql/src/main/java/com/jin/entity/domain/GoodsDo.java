@@ -24,4 +24,7 @@ public class GoodsDo {
     private String goodsSpu;
 
     private String color;
+
+    private Integer isDelete;
+
 }

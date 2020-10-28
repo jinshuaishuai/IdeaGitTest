@@ -4,6 +4,7 @@ import ch.qos.logback.core.boolex.EvaluationException;
 import com.beust.jcommander.IValueValidator;
 import com.entity.domain.Person;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import org.hibernate.validator.constraints.br.TituloEleitoral;
 import org.joda.time.DateTime;
 
@@ -16,8 +17,19 @@ import java.util.*;
 public class DataStructTest {
 
     public static void main(String[] args) {
-        ddd();
+        Gson gson = new Gson();
 
+        List<String> list = new ArrayList<>();
+        list.add("123");
+        list.add("abc");
+        System.out.println(list);
+
+        String json = gson.toJson(list);
+
+        System.out.println(json);
+
+        List<String> list1 = gson.fromJson(json, List.class);
+        System.out.println(list1);
 
     }
 
@@ -66,7 +78,7 @@ public class DataStructTest {
             List<Object> list = new ArrayList<>();
             maps.forEach((map) -> {
                 map.forEach((key, value) -> {
-                    if(field.equals(key)) {
+                    if (field.equals(key)) {
                         list.add(value);
                     }
                 });
@@ -102,19 +114,19 @@ public class DataStructTest {
 
         List<List<String>> listList = new ArrayList<>();
 
-        if(listMap != null && listMap.size() > 0) {
+        if (listMap != null && listMap.size() > 0) {
             //将key为id，name，age的分别放到不同的List中
             List<String> ids = new ArrayList<>();
             List<String> names = new ArrayList<>();
             List<String> ages = new ArrayList<>();
-            for(Map<String, Object> mapp : listMap) {
+            for (Map<String, Object> mapp : listMap) {
 
                 mapp.forEach((key, value) -> {
-                    if("id".equals(key)) {
+                    if ("id".equals(key)) {
                         ids.add(value.toString());
-                    } else if("name".equals(key)) {
+                    } else if ("name".equals(key)) {
                         names.add(value.toString());
-                    } else if("age".equals(key)) {
+                    } else if ("age".equals(key)) {
                         ages.add(value.toString());
                     }
                 });
@@ -130,7 +142,7 @@ public class DataStructTest {
     }
 
     private static void ListMap() {
-        Map<String, List<Map<String,String>>> map = new HashMap<>();
+        Map<String, List<Map<String, String>>> map = new HashMap<>();
         List<Map<String, String>> list = new ArrayList<>();
         Map map1 = new HashMap();
         map1.put("name", "fengqi");

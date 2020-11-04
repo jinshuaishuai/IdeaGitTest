@@ -34,6 +34,7 @@
         <module>springboot-base</module>
         <module>Springboot-poi</module>
         <module>springboot-test</module>
+        <module>springboot-redission</module>
     </modules>
     <dependencyManagement>
         <dependencies>
@@ -62,12 +63,7 @@
     </dependencyManagement>
 
     <dependencies>
-        <!--jedis依赖包-->
-        <dependency>
-            <groupId>redis.clients</groupId>
-            <artifactId>jedis</artifactId>
-            <version>3.1.0</version>
-        </dependency>
+
         <!-- 测试起步依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -79,15 +75,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!-- 添加热部署起步依赖 ,发现在整合drools中，会有问题，找不到工作内存中的对象，也就是规则明明匹配，在junit测试中是可以的，但是在项目中不行，
-            具体原因是devtools采用的类加载机制不再是双亲委托机制，而是RestartClassLoader，而Drools采用的是AppClassLoader类加载机制，二者加载的并不是同一个Fact，
-            要想解决这个问题，可以把devtools热部署去除
-        -->
-        <!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-        </dependency>-->
         <!-- Spring AOP起步依赖包 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

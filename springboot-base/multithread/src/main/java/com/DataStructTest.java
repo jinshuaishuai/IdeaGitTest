@@ -1,11 +1,6 @@
 package com;
 
-import ch.qos.logback.core.boolex.EvaluationException;
-import com.beust.jcommander.IValueValidator;
-import com.entity.domain.Person;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import org.hibernate.validator.constraints.br.TituloEleitoral;
 import org.joda.time.DateTime;
 
 import java.util.*;

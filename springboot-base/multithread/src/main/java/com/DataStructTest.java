@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import org.joda.time.DateTime;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author shuai.jin
@@ -12,19 +13,15 @@ import java.util.*;
 public class DataStructTest {
 
     public static void main(String[] args) {
-        Gson gson = new Gson();
+        List<String> list = Arrays.asList("123", "abc", "keys", "values", "list", "set", "map");
+        for(int i = 1; i < 10; i++) {
+            List<String> collect = list.stream().sorted().skip((i - 1) * 2).limit(2).collect(Collectors.toList());
+            System.out.println(collect);
+        }
 
-        List<String> list = new ArrayList<>();
-        list.add("123");
-        list.add("abc");
-        System.out.println(list);
 
-        String json = gson.toJson(list);
+        //想要干什么？
 
-        System.out.println(json);
-
-        List<String> list1 = gson.fromJson(json, List.class);
-        System.out.println(list1);
 
     }
 

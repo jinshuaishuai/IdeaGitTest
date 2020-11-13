@@ -1,7 +1,9 @@
 package com.entity.domain;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -13,6 +15,8 @@ import java.util.Random;
  */
 @Data
 @AllArgsConstructor
+@Builder
+@NoArgsConstructor
 public class User implements Serializable {
 
     private String name;
@@ -20,5 +24,7 @@ public class User implements Serializable {
     private String address;
 
     private int age;
+
+    private Integer status;
 
 }

@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.SortingParams;
-import redis.clients.jedis.params.SetParams;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -116,7 +115,7 @@ public class JedisCacheUtil {
          return set(key, value,0);
     }
 
-    public String set(String key, String value, String exOrPx,int expireTime, int indexdb) {
+   /* public String set(String key, String value, String exOrPx,int expireTime, int indexdb) {
         Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
@@ -138,7 +137,7 @@ public class JedisCacheUtil {
             returnResource(jedisPool, jedis);
         }
     }
-
+*/
 
         /**
          * <p>

@@ -27,4 +27,15 @@ public class User implements Serializable {
 
     private Integer status;
 
+    public static void main(String[] args) {
+        Long l = 3L;
+        Integer i = 1;
+        System.out.println(l.equals(3));
+        System.out.println(i.equals(l));
+
+        System.out.println(l.compareTo(3L));
+    }
+
+
+
 }

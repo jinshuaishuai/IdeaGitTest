@@ -9,10 +9,14 @@
         <result column="goods_sku" jdbcType="VARCHAR" property="goodsSku"/>
         <result column="goods_spu" jdbcType="VARCHAR" property="goodsSpu"/>
         <result column="color" jdbcType="VARCHAR" property="color"/>
-        <result column="is_delete" jdbcType="INTEGER" property="isDelete" />
         <result column="create_time" jdbcType="VARCHAR" property="createTime"/>
         <result column="update_time" jdbcType="VARCHAR" property="updateTime"/>
     </resultMap>
+    <sql id="Base_Columns">
+        id, goods_name, goods_price, goods_quantity,
+        goods_sku, goods_spu, color,
+        create_time, update_time
+    </sql>
     <insert id="addGoods" parameterType="com.jin.entity.domain.GoodsDo">
         insert into goods(
                           goods_name, goods_price, goods_quantity,
@@ -26,4 +30,14 @@
                             #{color, jdbcType=VARCHAR}
                            )
     </insert>
+    <select id="getGoodsById" parameterType="int" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Columns"/>
+        from goods
+        <where>
+            <if test="id != null">
+                and id = #{id, jdbcType=INTEGER}
+            </if>
+        </where>
+    </select>
 </mapper>

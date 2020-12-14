@@ -25,6 +25,8 @@ public class GoodsDo {
 
     private String color;
 
-    private Integer isDelete;
+    private String createTime;
+
+    private String updateTime;
 
 }

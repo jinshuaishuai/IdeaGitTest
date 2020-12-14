@@ -38,7 +38,7 @@ public class GoodsDataIncrementTask {
 
     private String[] spus = {"aaa", "bbb", "ccc", "ddd"};
 
-    @Scheduled(cron = "0/80 * * * * *")
+//    @Scheduled(cron = "0/80 * * * * *")
     public void incrementData2Goods() {
 
         for(int i = 0; i < 10000; i++) {

@@ -1,6 +1,9 @@
 package com.jin.entity.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -10,7 +13,10 @@ import java.io.Serializable;
  * @Date 2020/5/15 14:23
  */
 @Data
-public class UserInfoDO implements Serializable {
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class UserInfoDo implements Serializable {
 
     private static final long serialVersionUID = 584474155538846643L;
 

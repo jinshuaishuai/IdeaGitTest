@@ -1,6 +1,7 @@
 package com.jin.service;
 
-import com.jin.entity.domain.UserInfoDO;
+import com.jin.entity.ao.UserAo;
+import com.jin.entity.domain.UserInfoDo;
 
 import java.util.List;
 import java.util.Map;
@@ -17,7 +18,25 @@ public interface UserInfoService {
      * @param id
      * @return
      */
-    UserInfoDO getUserInfoById(int id);
+    UserInfoDo getUserInfoById(int id);
 
     List<Map<String, Object>> getDynamicQueryResult();
+
+    /**
+     * 新增
+     * @param userAo
+     */
+    void save(UserAo userAo);
+
+    /**
+     * 更新
+     * @param userAo
+     */
+    void update(UserAo userAo);
+
+    /**
+     * 删除
+     * @param userAo
+     */
+    void delete(UserAo userAo);
 }

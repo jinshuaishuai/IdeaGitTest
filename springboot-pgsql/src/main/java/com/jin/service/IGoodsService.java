@@ -1,6 +1,7 @@
 package com.jin.service;
 
 import com.jin.entity.ao.GoodsAo;
+import com.jin.entity.domain.GoodsDo;
 
 /**
  * @author shuai.jin
@@ -9,5 +10,7 @@ import com.jin.entity.ao.GoodsAo;
 
 public interface IGoodsService {
 
-    public void addGoods(GoodsAo goodsAo);
+    void addGoods(GoodsAo goodsAo);
+
+    GoodsDo getGoodsById(Integer id);
 }

@@ -1,13 +1,13 @@
 package com.jin.service.impl;
 
-import com.jin.entity.domain.UserInfoDO;
+import com.jin.entity.ao.UserAo;
+import com.jin.entity.domain.UserInfoDo;
 import com.jin.mapper.UserInfoMapper;
 import com.jin.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * @author shuai.jin
@@ -22,8 +22,8 @@ public class UserInfoServiceImpl implements UserInfoService {
     private UserInfoMapper userInfoMapper;
 
     @Override
-    public UserInfoDO getUserInfoById(int id) {
-        UserInfoDO infoDo = userInfoMapper.getUserInfoById(id);
+    public UserInfoDo getUserInfoById(int id) {
+        UserInfoDo infoDo = userInfoMapper.getUserInfoById(id);
 
         return infoDo;
     }
@@ -34,5 +34,36 @@ public class UserInfoServiceImpl implements UserInfoService {
         List<Map<String, Object>> result = userInfoMapper.getDynamicQueryResult();
         System.out.println(result);
         return result;
+    }
+
+    @Override
+    public void save(UserAo userAo) {
+        UserInfoDo infoDO = UserInfoDo.builder()
+                .name(userAo.getName())
+                .phone(userAo.getPhone())
+                .age(userAo.getAge())
+                .build();
+        userInfoMapper.save(infoDO);
+
+    }
+
+    @Override
+    public void update(UserAo userAo) {
+        UserInfoDo infoDO = UserInfoDo.builder()
+                .name(userAo.getName())
+                .phone(userAo.getPhone())
+                .age(userAo.getAge())
+                .build();
+        userInfoMapper.update(infoDO);
+    }
+
+    @Override
+    public void delete(UserAo userAo) {
+        UserInfoDo infoDO = UserInfoDo.builder()
+                .name(userAo.getName())
+                .phone(userAo.getPhone())
+                .age(userAo.getAge())
+                .build();
+        userInfoMapper.delete(infoDO);
     }
 }

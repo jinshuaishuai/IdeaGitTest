@@ -1,6 +1,6 @@
 package com.jin.mapper;
 
-import com.jin.entity.domain.UserInfoDO;
+import com.jin.entity.domain.UserInfoDo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -17,7 +17,13 @@ import java.util.Map;
 @Mapper
 public interface UserInfoMapper {
 
-    UserInfoDO getUserInfoById(@Param("id") int id);
+    UserInfoDo getUserInfoById(@Param("id") int id);
 
     List<Map<String, Object>> getDynamicQueryResult();
+
+    void save(UserInfoDo infoDO);
+
+    void update(UserInfoDo infoDO);
+
+    void delete(UserInfoDo infoDO);
 }

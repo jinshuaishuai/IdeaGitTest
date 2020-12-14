@@ -28,4 +28,9 @@ public class GoodsServiceImpl implements IGoodsService {
         log.info("goodsDo的值为：------>{}", goodsDo);
         goodsMapper.addGoods(goodsDo);
     }
+
+    @Override
+    public GoodsDo getGoodsById(Integer id) {
+        return goodsMapper.getGoodsById(id);
+    }
 }

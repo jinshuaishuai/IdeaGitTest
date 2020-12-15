@@ -26,4 +26,10 @@ public interface UserInfoMapper {
     void update(UserInfoDo infoDO);
 
     void delete(UserInfoDo infoDO);
+
+    /**
+     * 批量插入
+     * @param targetUserInfoList
+     */
+    void addBatch(List<UserInfoDo> targetUserInfoList);
 }

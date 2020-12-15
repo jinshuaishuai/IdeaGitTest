@@ -1,0 +1,15 @@
+spring:
+  redis:
+    host: 192.144.137.185
+    password: qsKopckvo8l^GSFvTpk3VB2tBBwiq7SZ
+    port: 7300
+    timeout: 30000
+    lettuce:
+      pool:
+        max-active: 50
+        max-wait: 20
+        max-idle: 8
+        min-idle: 5
+
+server:
+  port: 8003

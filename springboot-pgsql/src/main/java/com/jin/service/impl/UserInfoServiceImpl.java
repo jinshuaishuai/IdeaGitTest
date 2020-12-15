@@ -7,6 +7,7 @@ import com.jin.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.nio.file.attribute.UserDefinedFileAttributeView;
 import java.util.*;
 
 /**
@@ -65,5 +66,24 @@ public class UserInfoServiceImpl implements UserInfoService {
                 .age(userAo.getAge())
                 .build();
         userInfoMapper.delete(infoDO);
+    }
+
+    @Override
+    public void addBatch(List<UserAo> userAoList) {
+        List<UserInfoDo> targetUserInfoList = new ArrayList<>();
+        if(userAoList != null && userAoList.size() > 0) {
+            userAoList.forEach(
+                    userAo -> {
+                        UserInfoDo infoDO = UserInfoDo.builder()
+                                .name(userAo.getName())
+                                .phone(userAo.getPhone())
+                                .age(userAo.getAge())
+                                .build();
+                        targetUserInfoList.add(infoDO);
+                    }
+            );
+
+        }
+        userInfoMapper.addBatch(targetUserInfoList);
     }
 }

@@ -22,6 +22,34 @@
         select <include refid="Base_Columns"/>
         from user_info
     </select>
+    <insert id="addBatch" parameterType="com.jin.entity.domain.UserInfoDo" useGeneratedKeys="true" keyProperty="id">
+        insert into user_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">
+                name,
+            </if>
+            <if test="phone != null and phone != ''">
+                phone,
+            </if>
+            <if test="age != null">
+                age
+            </if>
+        </trim>
+        <trim prefix="values(" suffix=")" suffixOverrides=",">
+            <foreach collection="list" item="user" open="(" close=")" separator=",">
+                <if test="user.name != null and user.name != ''">
+                    #{user.name, jdbcType=VARCHAR},
+                </if>
+                <if test="user.phone != null and user.phone != ''">
+                    #{user.phone, jdbcType=VARCHAR},
+                </if>
+                <if test="user.age != null">
+                    #{user.age, jdbcType=INTEGER}
+                </if>
+            </foreach>
+
+        </trim>
+    </insert>
 
     <insert id="save" parameterType="com.jin.entity.domain.UserInfoDo" flushCache="false">
         insert into user_info

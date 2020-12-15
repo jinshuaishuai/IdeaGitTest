@@ -39,4 +39,6 @@ public interface UserInfoService {
      * @param userAo
      */
     void delete(UserAo userAo);
+
+    void addBatch(List<UserAo> userAoList);
 }

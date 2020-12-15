@@ -1,6 +1,7 @@
 package com.jin.controller;
 
 import com.jin.entity.ao.UserAo;
+import com.jin.entity.ao.UserListAo;
 import com.jin.entity.domain.UserInfoDo;
 import com.jin.service.UserInfoService;
 import lombok.extern.slf4j.Slf4j;
@@ -43,6 +44,14 @@ public class UserInfoController {
     public ResponseEntity save(@RequestBody UserAo userAo) {
         log.info("接口请求入参为：------>{}", userAo);
         userInfoService.save(userAo);
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping(value = "addBatch")
+    public ResponseEntity addBatch(@RequestBody UserListAo userAoList) {
+        log.info("接口请求入参为：------>{}", userAoList);
+        List<UserAo> userAoList1 = userAoList.getUserAoList();
+        userInfoService.addBatch(userAoList1);
         return ResponseEntity.ok().build();
     }
 

@@ -41,4 +41,11 @@ public interface UserInfoService {
     void delete(UserAo userAo);
 
     void addBatch(List<UserAo> userAoList);
+
+    /**
+     * 条件查询用户列表
+     * @param userInfoDo
+     * @return
+     */
+    List<UserInfoDo> getUserListByParam(UserInfoDo userInfoDo);
 }

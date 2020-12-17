@@ -14,6 +14,22 @@
     <sql id="Base_Columns">
         id,name,age,phone,is_delete,create_time,update_time
     </sql>
+    <select id="getUserListByParam" parameterType="com.jin.entity.domain.UserInfoDo" resultMap="BaseResultMap">
+        select <include refid="Base_Columns"/> 
+        from user_info 
+        <where>
+            <if test="id != null">
+                and id = #{id, jdbcType=INTEGER}
+            </if>
+            <if test="name != null and name != ''">
+                <bind name="nameLike" value="'%' + name + '%'"/>
+                and name like #{nameLike, jdbcType=VARCHAR}
+            </if>
+            <if test="phone != null and phone != ''">
+                and phone = #{phone, jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
     <select id="getUserInfoById" resultMap="BaseResultMap" parameterType="int" useCache="true">
         select <include refid="Base_Columns"/> from user_info where id = #{id, jdbcType=INTEGER}
     </select>
@@ -22,33 +38,16 @@
         select <include refid="Base_Columns"/>
         from user_info
     </select>
-    <insert id="addBatch" parameterType="com.jin.entity.domain.UserInfoDo" useGeneratedKeys="true" keyProperty="id">
-        insert into user_info
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="name != null and name != ''">
-                name,
-            </if>
-            <if test="phone != null and phone != ''">
-                phone,
-            </if>
-            <if test="age != null">
-                age
-            </if>
-        </trim>
-        <trim prefix="values(" suffix=")" suffixOverrides=",">
-            <foreach collection="list" item="user" open="(" close=")" separator=",">
-                <if test="user.name != null and user.name != ''">
-                    #{user.name, jdbcType=VARCHAR},
-                </if>
-                <if test="user.phone != null and user.phone != ''">
-                    #{user.phone, jdbcType=VARCHAR},
-                </if>
-                <if test="user.age != null">
-                    #{user.age, jdbcType=INTEGER}
-                </if>
-            </foreach>
-
-        </trim>
+    <insert id="addBatch" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id">
+        insert into user_info(name, phone, age)
+        values
+        <foreach collection="list" item="user" separator=",">
+            (
+             #{user.name, jdbcType=VARCHAR},
+             #{user.phone, jdbcType=VARCHAR},
+             #{user.age, jdbcType=INTEGER}
+            )
+        </foreach>
     </insert>
 
     <insert id="save" parameterType="com.jin.entity.domain.UserInfoDo" flushCache="false">

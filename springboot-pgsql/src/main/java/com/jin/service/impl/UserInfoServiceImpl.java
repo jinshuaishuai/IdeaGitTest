@@ -85,5 +85,14 @@ public class UserInfoServiceImpl implements UserInfoService {
 
         }
         userInfoMapper.addBatch(targetUserInfoList);
+
+        targetUserInfoList.forEach(userInfoDo -> {
+            System.out.println(userInfoDo);
+        });
+    }
+
+    @Override
+    public List<UserInfoDo> getUserListByParam(UserInfoDo userInfoDo) {
+        return userInfoMapper.getUserListByParam(userInfoDo);
     }
 }

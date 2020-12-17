@@ -32,4 +32,6 @@ public interface UserInfoMapper {
      * @param targetUserInfoList
      */
     void addBatch(List<UserInfoDo> targetUserInfoList);
+
+    List<UserInfoDo> getUserListByParam(UserInfoDo userInfoDo);
 }

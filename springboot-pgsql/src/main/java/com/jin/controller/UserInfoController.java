@@ -33,6 +33,13 @@ public class UserInfoController {
         return value;
     }
 
+    @PostMapping(value = "getUserListByParam")
+    public ResponseEntity<List<UserInfoDo>> getUserListByParam(@RequestBody UserInfoDo userInfoDo) {
+        log.info("接口请求入参为：------>{}", userInfoDo);
+        List<UserInfoDo> result = userInfoService.getUserListByParam(userInfoDo);
+        return ResponseEntity.ok(result);
+    }
+
     @GetMapping(value = "getDynamicQueryResult")
     public List<Map<String, Object>> getDynamicQueryResult() {
 

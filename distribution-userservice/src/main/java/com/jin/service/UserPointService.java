@@ -1,5 +1,6 @@
 package com.jin.service;
 
+import com.jin.entity.ao.UserPointAo;
 import com.jin.entity.domain.EventDO;
 import com.jin.entity.domain.PointDO;
 import com.jin.entity.query.EventQuery;
@@ -29,4 +30,7 @@ public interface UserPointService {
 
     @PostMapping(value = "/api/userpoint/getPointEventList")
     List<EventDO> getPointEventList(@RequestBody EventQuery eventQuery);
+
+    @PostMapping(value = "/api/userpoint/addUserPoint")
+    void addUserPoint(@RequestBody UserPointAo userPointAo);
 }

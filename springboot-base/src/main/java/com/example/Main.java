@@ -11,10 +11,8 @@ import java.util.stream.Collectors;
  */
 public class Main {
     public static void main(String[] args) {
-        method1();
-//        method2();
-//        filter();
-//        method3();
+       String str = " and id in('abc','bcd')";
+        System.out.println(str.substring(4));
     }
 
     private static void method3() {

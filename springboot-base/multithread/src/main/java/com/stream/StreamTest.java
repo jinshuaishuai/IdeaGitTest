@@ -12,7 +12,7 @@ import java.util.stream.Stream;
  * @author shuai.jin
  * @date 2020/9/17 18:53
  */
-public class StreamTest {
+public class    StreamTest {
 
     public static void main(String[] args) {
 

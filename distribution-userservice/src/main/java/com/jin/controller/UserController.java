@@ -43,6 +43,12 @@ public class UserController {
         return RestResponse.success();
     }
 
+    @PostMapping(value = "/addUserByRemoteCall")
+    public RestResponse<String> addUserByRemoteCall(@RequestBody @Validated UserAO userAo) {
+        userService.addUserByRemoteCall(userAo);
+        return RestResponse.success();
+    }
+
     @GetMapping(value = "/getUserPoint")
     public RestResponse<UserPointDTO> getUserPoint(@RequestParam int userId) {
         log.info("请求入参为：------>{}", userId);

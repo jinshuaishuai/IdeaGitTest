@@ -62,11 +62,14 @@ public class AvoidRepeatableCommitAspect {
         String name = method.getName();
         String redisKey = String.format("%s#%s", remoteHost, name);
 
-        String redisValue = jedisCacheUtil.get(redisKey, 6);
+        String redisValue = jedisCacheUtil.get(redisKey, 0);
         if(StringUtils.isEmpty(redisValue)) {
             //如果缓存中不存在
             //将该key设置到缓存中，设置缓存时间为30s，
-            jedisCacheUtil.set(redisKey,String.valueOf(System.currentTimeMillis()), "ex", 30, 6);
+            jedisCacheUtil.set(redisKey, String.valueOf(System.currentTimeMillis()));
+            jedisCacheUtil.expire(redisKey, 30,0);
+
+
         } else {
             //缓存中存在，封装不能重复提交异常信息，返回给前端，还要重新HttpServletResponse接口类
 

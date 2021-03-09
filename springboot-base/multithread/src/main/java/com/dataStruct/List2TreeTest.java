@@ -2,7 +2,6 @@ package com.dataStruct;
 
 import com.entity.domain.TreeItemDo;
 import com.google.gson.Gson;
-import lombok.Data;
 
 import java.util.*;
 
@@ -39,11 +38,18 @@ public class List2TreeTest {
         node4.setId(4L);
         node4.setParentId(2L);
 
+        TreeItemDo node5 = new TreeItemDo();
+        node5.setText("maliu");
+        node5.setValue("66");
+        node5.setId(5L);
+        node5.setParentId(2L);
+
         List<TreeItemDo> list = new ArrayList<>();
         list.add(node1);
         list.add(node2);
         list.add(node3);
         list.add(node4);
+        list.add(node5);
         Set<TreeItemDo> loop = loop(list, 0L);
         Gson gson = new Gson();
         String json = gson.toJson(loop);
@@ -56,19 +62,11 @@ public class List2TreeTest {
         while (it.hasNext()) {
             TreeItemDo next = it.next();
 
-            /*
-                现在唯一要做的就是属于上一个父节点的子节点，才进行设置值，但是怎样判断子节点是不是属于父节点呢？
-
-                判断当前子节点是否属于该父节点？但是怎样判断当前子节点是否属于该父节点呢？它是在递归算法中，难于判断该
-                子节点是否是属于这个父节点的
-
-                现在的问题是：子节点挂载到了不属于这个父节点的节点下
-
-             */
-
             if(next.getParentId().equals(parentId)  || next.getParentId().equals(0)) {
-
-
+                Object text = next.getText();
+                if(next.getParentId().equals(0)) {
+                    continue;
+                }
                 //添加之前，判断该子节点是否属于这个父节点的
                 targetList.add(next);
                 it.remove();

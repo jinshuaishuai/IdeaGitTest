@@ -25,7 +25,7 @@ public class EventScheduler {
     private MessageService messageService;
 
     //每三秒执行一次
-    @Scheduled(cron = "*/3 * * * * ?")
+//    @Scheduled(cron = "*/3 * * * * ?")
     public void scanTeventTable() {
         EventQuery eventQuery = new EventQuery();
         eventQuery.setProcess("NEW");

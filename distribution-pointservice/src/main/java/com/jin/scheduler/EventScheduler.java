@@ -33,7 +33,7 @@ public class EventScheduler {
     @Autowired
     private MessageService messageService;
 
-    @Scheduled(cron = "*/3 * * * * ?")
+//    @Scheduled(cron = "*/3 * * * * ?")
     @Transactional(rollbackFor = Exception.class)
     public void eventProcess() {
         //轮询事件表中process字段为PUBLISHED的所有记录

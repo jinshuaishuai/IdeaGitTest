@@ -1,5 +1,6 @@
 package com.dataStruct;
 
+import ch.qos.logback.core.boolex.EvaluationException;
 import com.beust.jcommander.IValueValidator;
 import com.entity.domain.TreeItemDo;
 import com.google.gson.Gson;
@@ -19,43 +20,19 @@ public class ListMap2TreeTest {
 
         //是目标数据
         Map<String, Object> map1 = new LinkedHashMap<>();
-        map1.put("name", "fengqi");
-        map1.put("phone", "1");
+        map1.put("name", "zhangsan");
+        map1.put("phone", "1211");
         map1.put("create_time", "2020-12-09 17:03:22");
         map1.put("status", "0");
         map1.put("age", 2);
 
         //是目标数据
         Map<String, Object> map2 = new LinkedHashMap<>();
-        map2.put("name", "fengqi");
+        map2.put("name", "zhangsan");
         map2.put("phone", "1");
         map2.put("create_time", "2020-12-08 17:03:22");
         map2.put("status", "1");
         map2.put("age", 20);
-
-        //目标数据
-        Map<String, Object> map3 = new LinkedHashMap<>();
-        map3.put("name", "zhangsan");
-        map3.put("phone", "234");
-        map3.put("create_time", "2020-11-11 18:20:20");
-        map3.put("status", "0");
-//        map3.put("age", 23);
-
-        //目标数据
-        Map<String, Object> map4 = new LinkedHashMap<>();
-        map4.put("name", "zhangsan");
-        map4.put("phone", "234");
-        map4.put("create_time", "2020-11-11 18:20:20");
-        map4.put("status", "1");
-        map4.put("age", "24");
-
-        //目标数据
-        Map<String, Object> map5 = new LinkedHashMap<>();
-        map5.put("name", "zhangsan");
-        map5.put("phone", "222");
-        map5.put("create_time", "aaaaa");
-        map5.put("status", "不见了远处的青山");
-        map5.put("age", 10);
 
         //非目标数据
         Map<String, Object> map6 = new LinkedHashMap<>();
@@ -65,9 +42,7 @@ public class ListMap2TreeTest {
 
         queryResult.add(map1);
         queryResult.add(map2);
-        queryResult.add(map3);
-        queryResult.add(map4);
-        queryResult.add(map5);
+
         queryResult.add(map6);
 
 
@@ -83,7 +58,7 @@ public class ListMap2TreeTest {
                     Set<TreeItemDo> outterLoop = outterLoop(queryResult, ite);
                     treeItemDoList.addAll(outterLoop);
                     if (queryResult.get(++ite).size() < 5) {
-                        Set<TreeItemDo> loop = List2TreeTest.loop(treeItemDoList, 0);
+                        Set<TreeItemDo> loop = loop(treeItemDoList, 0, queryResult);
                         System.out.println(gson.toJson(loop));
                     }
                     --ite;
@@ -99,6 +74,25 @@ public class ListMap2TreeTest {
 
         //封装数据完成
 
+    }
+
+    public static Set<TreeItemDo> loop(Collection<TreeItemDo> list, Object parentId, List<Map<String, Object>> queryResult) {
+        Set<TreeItemDo> targetList = new TreeSet<>();
+
+        Iterator<TreeItemDo> it = list.iterator();
+        while (it.hasNext()) {
+            TreeItemDo next = it.next();
+
+            if(next.getParentId().equals(0)) {
+                targetList.add(next);
+                it.remove();
+            } else if(next.getParentId().equals(parentId)) {
+                //判断该节点是否属于该父节点
+
+            }
+        }
+        targetList.forEach(n -> n.setChildren(loop(list, n.getId(), queryResult)));
+        return targetList;
     }
 
     /**

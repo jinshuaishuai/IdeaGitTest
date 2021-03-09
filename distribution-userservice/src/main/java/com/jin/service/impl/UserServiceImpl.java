@@ -2,6 +2,7 @@ package com.jin.service.impl;
 
 import com.google.gson.Gson;
 import com.jin.entity.ao.UserAO;
+import com.jin.entity.ao.UserPointAo;
 import com.jin.entity.bo.PointBO;
 import com.jin.entity.domain.EventDO;
 import com.jin.entity.domain.UserDO;
@@ -9,6 +10,7 @@ import com.jin.exception.BusinessException;
 import com.jin.exception.UserAddException;
 import com.jin.mapper.EventMapper;
 import com.jin.mapper.UserMapper;
+import com.jin.service.UserPointService;
 import com.jin.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -32,6 +34,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private EventMapper eventMapper;
+
+    @Autowired
+    private UserPointService userPointService;
 
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -85,6 +90,25 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDO getUserById(int userId) {
         return userMapper.getUserById(userId);
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public void addUserByRemoteCall(UserAO userAo) {
+        UserDO userDo = new UserDO();
+        BeanUtils.copyProperties(userAo, userDo);
+        userMapper.addUser(userDo);
+
+        //放的位置不一致，结果不一致
+//        System.out.println(1 / 0);
+        UserPointAo userPointAo = UserPointAo.builder()
+                .point(new BigDecimal(23))
+                .userId(userDo.getId())
+                .build();
+        userPointService.addUserPoint(userPointAo);
+
+        //异常产生
+        System.out.println(1 / 0);
     }
 
 }

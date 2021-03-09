@@ -1,10 +1,12 @@
 package com.poi.example;
 
-import cn.hutool.poi.excel.ExcelReader;
 import cn.hutool.poi.excel.ExcelUtil;
 import cn.hutool.poi.excel.ExcelWriter;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author shuai.jin
@@ -36,10 +38,13 @@ public class MainTest {
 //        headList.add("d");
 
 
-
         writer.writeHeadRow(headList);
         writer.write(maps);
 
         writer.close();
+    }
+
+
+    public void writer1() {
     }
 }

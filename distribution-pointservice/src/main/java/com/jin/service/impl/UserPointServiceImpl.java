@@ -1,5 +1,6 @@
 package com.jin.service.impl;
 
+import com.jin.entity.ao.UserPointAo;
 import com.jin.entity.domain.PointDO;
 import com.jin.mapper.UserPointMapper;
 import com.jin.service.UserPointService;
@@ -22,5 +23,14 @@ public class UserPointServiceImpl implements UserPointService {
     public List<PointDO> getUserPointList(int userId) {
 
         return userPointMapper.getUserPointList(userId);
+    }
+
+    @Override
+    public void addUserPoint(UserPointAo userPointAo) {
+        PointDO pointDO = PointDO.builder()
+                .point(userPointAo.getPoint())
+                .userId(userPointAo.getUserId())
+                .build();
+        userPointMapper.addPoint(pointDO);
     }
 }

@@ -1,5 +1,6 @@
 package com.jin.service;
 
+import com.jin.entity.ao.UserPointAo;
 import com.jin.entity.domain.PointDO;
 
 import java.util.List;
@@ -17,5 +18,9 @@ public interface UserPointService {
      */
     List<PointDO> getUserPointList(int userId);
 
-
+    /**
+     * 添加用户积分
+     * @param userPointAo
+     */
+    void addUserPoint(UserPointAo userPointAo);
 }

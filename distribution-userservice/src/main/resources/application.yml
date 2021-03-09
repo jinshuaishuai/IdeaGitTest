@@ -1,5 +1,5 @@
 server:
-  port: 9001
+  port: 9003
 
 spring:
   application:
@@ -13,7 +13,7 @@ spring:
       url: jdbc:mysql://localhost:3306/demo1?characterEncodeing=utf8mb4
       username: root
       password: root
-      max-open-prepared-statements:
+      max-open-prepared-statements: -1
   mvc:
     servlet:
       path: /api

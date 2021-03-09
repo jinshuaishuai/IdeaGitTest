@@ -24,4 +24,10 @@ public interface UserService {
      * @return
      */
     UserDO getUserById(@Param("id") int userId);
+
+    /**
+     *
+     * @param userAo
+     */
+    void addUserByRemoteCall(UserAO userAo);
 }

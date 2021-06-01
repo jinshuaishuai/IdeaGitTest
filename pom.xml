@@ -35,6 +35,7 @@
         <module>Springboot-poi</module>
         <module>springboot-test</module>
         <module>springboot-redission</module>
+        <module>springboot-shardingjdbc</module>
     </modules>
     <dependencyManagement>
         <dependencies>

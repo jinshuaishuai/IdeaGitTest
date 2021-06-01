@@ -3,6 +3,8 @@ package com.example;
 
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
 /**
@@ -10,12 +12,23 @@ import java.util.stream.Collectors;
  * @date 2020/9/7 9:23
  */
 public class Main {
+
+    private AtomicInteger i = new AtomicInteger();
+
+    private AtomicLong l = new AtomicLong();
+
+    public void aaa() {
+        i.incrementAndGet();
+    }
+
+
     public static void main(String[] args) {
        String str = " and id in('abc','bcd')";
         System.out.println(str.substring(4));
     }
 
     private static void method3() {
+
         List<Map<String,Object>> list = new ArrayList<>();
         Map<String,Object> stu1 = new HashMap<String, Object>();
         stu1.put("name", "卫庄");

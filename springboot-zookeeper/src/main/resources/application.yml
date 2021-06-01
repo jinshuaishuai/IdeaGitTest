@@ -14,6 +14,10 @@ spring:
         max-idle: 10
         min-idle: 0
         max-wait: 20
+zookeeper:
+  url: 127.0.0.1
+  port: 2181
+  defaultPath: /bi_server
 
 debug: true
 logging:

@@ -87,21 +87,7 @@ public class QuartzTest1 {
 
     @Test
     public void testJsonMap() {
-        Map<String, Person> map = new HashMap<>();
-        Person p1 = Person.builder().name("张三").age(23).build();
-        Person p2 = Person.builder().name("李四").age(24).build();
 
-        map.put("zs", p1);
-        map.put("ls", p2);
-
-        Gson gson = new Gson();
-        String json = gson.toJson(map);
-        System.out.println(json);
-
-        Type type = new TypeToken<Map<String, Person>>(){}.getType();
-
-        Object o = gson.fromJson(json, type);
-        System.out.println(o);
 
     }
 }

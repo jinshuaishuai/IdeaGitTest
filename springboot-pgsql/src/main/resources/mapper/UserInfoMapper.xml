@@ -39,7 +39,7 @@
         from user_info
     </select>
     <insert id="addBatch" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id">
-        insert into user_info(name, phone, age)
+        insert into user_info1(name, phone, age)
         values
         <foreach collection="list" item="user" separator=",">
             (

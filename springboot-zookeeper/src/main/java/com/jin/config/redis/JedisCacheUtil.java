@@ -142,6 +142,23 @@ public class JedisCacheUtil {
                 returnResource(jedisPool, jedis);
             }
         }
+
+        public String set(String key, String value, String nx, String expire, int time) {
+            Jedis jedis = null;
+            try {
+                jedis = jedisPool.getResource();
+
+                jedis.set(key,value,nx,expire,time);
+                jedis.select(0);
+                return jedis.set(key, value);
+            } catch (Exception e) {
+
+                log.error(e.getMessage());
+                return "0";
+            } finally {
+                returnResource(jedisPool, jedis);
+            }
+        }
         /**
          * <p>
          * 向redis存入key和value,并释放连接资源

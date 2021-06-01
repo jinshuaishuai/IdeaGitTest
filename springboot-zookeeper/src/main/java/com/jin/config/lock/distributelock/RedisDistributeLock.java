@@ -76,7 +76,7 @@ public class RedisDistributeLock extends AbstractDistributeLock {
      * @return                  加锁成功返回 true 失败返回 false
      */
     public boolean lock(String lockKey, String requestId, int expireTime) {
-        String ex = jedisCacheUtil.set(lockKey, requestId,EXPIRE_UNIT_EX, expireTime, 2);
+        String ex = jedisCacheUtil.set(lockKey, requestId,EXPIRE_UNIT_EX, "", expireTime);
         synchronized (this) {
             if(LOCK_SUCCESS.equals(ex)) {
                 return true;

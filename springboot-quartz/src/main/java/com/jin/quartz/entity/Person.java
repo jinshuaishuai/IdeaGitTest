@@ -10,7 +10,6 @@ import java.io.Serializable;
  * @date 2020/8/21 11:26
  */
 @Data
-@Builder
 public class Person implements Serializable {
 
     private String name;

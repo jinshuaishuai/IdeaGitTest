@@ -110,11 +110,6 @@
             <artifactId>java-jwt</artifactId>
             <version>3.8.1</version>
         </dependency>
-        <dependency>
-            <groupId>com.jin</groupId>
-            <artifactId>springcloud-commons</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
     </dependencies>
     <build>
         <plugins>

@@ -107,11 +107,6 @@
             <version>3.8.1</version>
         </dependency>
         <dependency>
-            <groupId>com.jin</groupId>
-            <artifactId>springcloud-commons</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>easyexcel</artifactId>
             <version>2.2.6</version>

@@ -40,5 +40,15 @@ public class StreamMapTest {
         //是不是可以只取出三列的值呢:答案是不可以
 //        users.stream().map(User::getName).map(User::getAddress).map(User::getAge).collect(Collectors.toList());
 
+
+        //将所有人的年龄都转为字符串,然后再转为int类型值
+        List<Integer> collect4 =
+                users.stream()
+                        .map(User::getAge)
+                        .map(String::valueOf)
+                        .map(Integer::valueOf)
+                        .collect(Collectors.toList());
+        System.out.println(collect4);
+
     }
 }

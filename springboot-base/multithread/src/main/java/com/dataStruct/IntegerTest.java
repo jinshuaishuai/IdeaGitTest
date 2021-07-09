@@ -1,3 +1,5 @@
+package com.dataStruct;
+
 /**
  * @Classname IntegerTest
  * @Description TODO
@@ -5,5 +7,8 @@
  * @Created by jinshuai
  */
 public class IntegerTest {
-
+    public static void main(String[] args) {
+        String s = Integer.toHexString(23);
+        System.out.println(s);
+    }
 }

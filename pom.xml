@@ -36,6 +36,7 @@
         <module>springboot-test</module>
         <module>springboot-redission</module>
         <module>springboot-shardingjdbc</module>
+        <module>springboot-rabbitmq</module>
     </modules>
     <dependencyManagement>
         <dependencies>

@@ -1,5 +1,6 @@
 package com.jin.config.mq;
 
+import org.apache.activemq.command.ActiveMQQueue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jms.core.JmsTemplate;
@@ -32,6 +33,21 @@ public class MessageService {
 
     public void sendTopicMessage(String messageContent) {
         jmsTemplate.send(topic,session -> session.createTextMessage(messageContent));
+    }
+
+    /**
+     * 有用户自己填写队列
+     * @param queue
+     * @param messageContent
+     */
+    public void sendQueueMessage(Queue queue,String messageContent) {
+        jmsTemplate.send(queue, session -> session.createTextMessage(messageContent));
+
+    }
+
+    public void sendActiveMQTypeQueueMessage(String queueName, String messageContent) {
+        ActiveMQQueue activeMQQueue = new ActiveMQQueue(queueName);
+
     }
 
 }

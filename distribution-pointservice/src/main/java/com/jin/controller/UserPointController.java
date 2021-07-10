@@ -1,6 +1,6 @@
 package com.jin.controller;
 
-import com.jin.common.config.RestResponse;
+import com.jin.config.RestResponse;
 import com.jin.entity.ao.UserPointAo;
 import com.jin.entity.domain.EventDO;
 import com.jin.entity.domain.PointDO;

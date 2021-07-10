@@ -1,7 +1,7 @@
 package com.jin.config.aspect;
 
 import com.google.gson.Gson;
-import com.jin.common.config.RestResponse;
+import com.jin.config.RestResponse;
 import com.jin.config.redis.JedisCacheUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;

@@ -1,6 +1,6 @@
 package com.jin.controller;
 
-import com.jin.common.config.RestResponse;
+import com.jin.config.RestResponse;
 import com.jin.config.annotation.AvoidRepeatableCommit;
 import com.jin.config.annotation.LogRecord;
 import com.jin.entity.ao.UserAO;

@@ -1,6 +1,6 @@
 package com.jin.exception.handler;
 
-import com.jin.common.config.RestResponse;
+import com.jin.config.RestResponse;
 import com.jin.exception.BusinessException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;

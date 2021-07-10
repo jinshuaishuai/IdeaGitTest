@@ -1,8 +1,8 @@
 package com.jin.paramvalid.constraintvalidators.handler;
 
-import com.jin.common.config.RestResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.validator.internal.engine.ConstraintViolationImpl;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
@@ -31,16 +31,16 @@ public class ParamValidExceptionHandler {
      */
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
     @ResponseBody
-    public RestResponse<String> paramsValid(MethodArgumentNotValidException e) {
+    public ResponseEntity paramsValid(MethodArgumentNotValidException e) {
         String errorMessages = getErrorMessages(e.getBindingResult());
-        return RestResponse.success(errorMessages);
+        return ResponseEntity.ok(errorMessages);
     }
 
     @ExceptionHandler(value = BindException.class)
     @ResponseBody
-    public RestResponse<String> bindException(BindException e) {
+    public ResponseEntity bindException(BindException e) {
         String errorMessages = getErrorMessages(e.getBindingResult());
-        return RestResponse.success(errorMessages);
+        return ResponseEntity.ok(errorMessages);
     }
 
     /**
@@ -48,7 +48,7 @@ public class ParamValidExceptionHandler {
      */
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseBody
-    public RestResponse<String> ConstraintViolationExceptionHandler(ConstraintViolationException e) {
+    public ResponseEntity ConstraintViolationExceptionHandler(ConstraintViolationException e) {
 
         Set<ConstraintViolation<?>> errorSet = e.getConstraintViolations();
         StringBuilder message = new StringBuilder();
@@ -56,7 +56,8 @@ public class ParamValidExceptionHandler {
             ConstraintViolationImpl error = (ConstraintViolationImpl)constraintViolation;
             message.append(error.getMessage());
         }
-        return RestResponse.success(message.toString());
+
+        return  ResponseEntity.ok(message);
     }
 
     private String getErrorMessages(BindingResult bindingResult) {

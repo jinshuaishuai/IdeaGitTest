@@ -19,8 +19,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @MapperScan(basePackages = "com.jin.mapper.**")
 public class PgsqlApplicationStartUp implements ApplicationRunner {
 
-    @Autowired
-    private ZkClient zkClient;
+    /*@Autowired
+    private ZkClient zkClient;*/
 
     public static void main(String[] args) {
         SpringApplication.run(PgsqlApplicationStartUp.class, args);
@@ -35,10 +35,11 @@ public class PgsqlApplicationStartUp implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         //项目启动的时候，向zookeeper上，写入实例信息
-        if(!zkClient.exists("/test")) {
+        /*if(!zkClient.exists("/test")) {
             zkClient.createPersistent("/test");
         }
 
         zkClient.createEphemeral("/test" + "/" + "pgsqlApplicationStartUp");
+    */
     }
 }

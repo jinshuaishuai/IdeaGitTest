@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ZookeeperConfiguration {
 
-    @Bean
+//    @Bean
     public ZkClient zkClient() {
         String connectUrl = "localhost:2181";
         ZkClient zkClient = new ZkClient(connectUrl);

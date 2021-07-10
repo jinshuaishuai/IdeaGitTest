@@ -11,6 +11,8 @@ import com.jin.entity.dto.UserPointDTO;
 import com.jin.entity.query.EventQuery;
 import com.jin.service.UserPointService;
 import com.jin.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -26,6 +28,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/user")
 @Slf4j
+@Api(value = "UserController")
 public class UserController {
 
     @Autowired
@@ -38,6 +41,7 @@ public class UserController {
     //防止表单在规定时间内重复提交
     @AvoidRepeatableCommit
     @PostMapping(value = "/addUser")
+    @ApiOperation(value = "新增用户")
     public RestResponse<String> addUser(@RequestBody @Validated UserAO userAo) throws NoSuchAlgorithmException {
         userService.addUser(userAo);
         return RestResponse.success();

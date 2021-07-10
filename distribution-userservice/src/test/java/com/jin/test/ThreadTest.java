@@ -5,14 +5,10 @@ import com.jin.entity.ao.UserAO;
 import com.jin.entity.domain.PointDO;
 import com.jin.entity.domain.UserDO;
 import com.jin.entity.dto.UserPointDTO;
-import lombok.SneakyThrows;
-import net.sf.json.JSONArray;
 import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
 /**

@@ -40,3 +40,6 @@ eureka:
  #     show-details: always
 mybatis:
   mapper-locations:  classpath:mapper/*.xml
+
+swagger:
+  enable: true
